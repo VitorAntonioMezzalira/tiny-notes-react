@@ -1,0 +1,27 @@
+/* form */
+.form{
+  width: 50rem;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+.form-title{
+  font: 4rem Helvetica, sans-serif;
+  color: #ff8500;
+}
+.form ul{
+  list-style-type: none;
+}
+.form ul li {
+  margin: 4rem 0
+}
+.message{
+  height: 2rem;
+  font-size: 2rem;
+}
+
+.error-message{
+  color: #ff8888;
+}
+.success-message{
+  color: #88ff88;
+}
