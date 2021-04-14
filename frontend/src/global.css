@@ -48,6 +48,19 @@ html{
 .full-width{
   width: 100%;
 }
+
+.font_1x{
+  font-size: 1rem;
+}
+
+.font_1-5x{
+  font-size: 1.5rem;
+}
+
+.font_2x{
+  font-size: 2rem;
+}
+
 .text{
   font-size: 1.4rem;
 }

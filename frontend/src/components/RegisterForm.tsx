@@ -25,6 +25,7 @@ export function RegisterForm() {
   let history = useHistory();
 
   const [registerMessage, setRegisterMessage] = useState('');
+  const [isRegisterSuccess, setIsRegisterSuccess] = useState(Boolean)
   const [isRegisterMessageError, setIsRegisterMessageError] = useState(Boolean);
 
   const inputName = useRef<HTMLInputElement>(null);
@@ -98,8 +99,9 @@ export function RegisterForm() {
 
             setIsRegisterMessageError(false);
             setRegisterMessage('Register success');
+            setIsRegisterSuccess(true)
 
-            history.push('/login')
+            // history.push('/login')
 
           }
         })
@@ -112,23 +114,46 @@ export function RegisterForm() {
   }, [registerMessage]);
 
   return (
-    <form className="form" onSubmit={handleRegister}>
+    <>
+      <div>
 
-      <ul>
-        <li><h3 className="text-center form-title">Create your account</h3></li>
-        {
-          registerMessage ?
-            <li className={ (isRegisterMessageError ? 'error-message' : 'success-message') + ' message text-center'}>{registerMessage}</li> :
-            ''
-        }
-        <li><input ref={inputName} className="input full-width" placeholder="Name" id="name" type="text" /></li>
-        <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
-        <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
-        <li><input ref={inputRepassword} className="input full-width" placeholder="Confirm password" id="repassword" type="password" /></li>
-        <li><button className="button-primary full-width" id="register">Register</button></li>
-        <li><p className="text text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
-      </ul>
+      </div>
+      <form className="form" onSubmit={handleRegister}>
+        <ul>
+          <li><h3 className="text-center form-title">Create your account</h3></li>
+          {
+            registerMessage ?
+              <li className={(isRegisterMessageError ? 'error-message' : 'success-message') + ' message text-center'}>{registerMessage}</li> :
+              ''
+          }
+          <li><input ref={inputName} className="input full-width" placeholder="Name" id="name" type="text" /></li>
+          <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
+          <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
+          <li><input ref={inputRepassword} className="input full-width" placeholder="Confirm password" id="repassword" type="password" /></li>
+          <li><button className="button-primary full-width" id="register">Register</button></li>
+          <li><p className="font1-5x text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
+        </ul>
 
-    </form>
+      </form>
+
+      {
+        isRegisterSuccess ?
+
+          <div id="modal-register-success" className="modal-shadow">
+            <ul className="modal">
+
+              <li className="text-center"><h2>Success</h2></li>
+              <li><p className="font_2x">Congratulations, your account <br /> has been successfully created.</p></li>
+              <li><Link to="/login" className="link">Continue</Link></li>
+
+            </ul>
+          </div> : ''
+
+      }
+
+
+
+    </>
+
   )
 }
