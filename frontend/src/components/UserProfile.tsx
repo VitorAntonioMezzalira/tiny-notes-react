@@ -23,8 +23,8 @@ export function UserProfile() {
     console.log(user._id)
     history.push('/login')
   }
-    
-    
+
+
 
   useEffect(() => {
     return
@@ -34,49 +34,35 @@ export function UserProfile() {
   return (
 
     user ?
-
-      <ul className="text-center profile">
-        <div onClick={openModal} className="sign-out">
-          <i className="fa fa-cog fa-3x"></i>
-        </div>
-        <div className="profile-image-container">
-          <div className="profile-image">
-            <img id="image" alt={user.name} src={user.image ? user.image : UserDefaultImage} />
+      <div className="container">
+        <ul className="text-center profile">
+          <div onClick={openModal} className="sign-out">
+            <i className="fa fa-cog fa-3x"></i>
           </div>
-        </div>
-        <li className="profile-bio">
-          <h2 id="name">{user.name}</h2>
-          <h3 id="bio">{user.bio}</h3>
-        </li>
+          <div className="profile-image-container">
+            <div className="profile-image">
+              <img id="image" alt={user.name} src={user.image ? user.image : UserDefaultImage} />
+            </div>
+          </div>
+          <li className="profile-bio">
+            <h2 id="name">{user.name}</h2>
+            <h3 id="bio">{user.bio}</h3>
+          </li>
 
-        {
-          user.twitter || user.instagram ?
-          <li className="profile-links">
+          {
+            user.twitter || user.instagram ?
+              <li className="profile-links">
+                {user.twitter && <a target="_blanc" id="twitter" href={user.twitter}><i className="fab fa-twitter fa-2x"></i></a>}
+                {user.instagram && <a target="_blanc" id="instagram" href={user.instagram}><i className="fab fa-instagram fa-2x"></i></a>}
+              </li> : ''
+          }
 
-            {
-              user.twitter && <a target="_blanc" id="twitter" href={user.twitter}><i className="fab fa-twitter fa-2x"></i></a>
-            }
-            {
-              user.instagram && <a target="_blanc" id="instagram" href={user.instagram}><i className="fab fa-instagram fa-2x"></i></a>
-            }
-
-
-            {/* deve ser dinâmico */}
-
-            {/* deve ser dinâmico */}
-          </li> : ''
-
-        }
-
-        <li className="profile-actions">
-          <Link to="/notes" className="link">Notes</Link>
-          <Link to="/edit-profile" className="link">Edit</Link>
-        </li>
-      </ul >
-      :
-      <div className="loading">Loading...</div>
-
-
+          <li className="profile-actions">
+            <Link to="/notes" className="link">Notes</Link>
+            <Link to="/edit-profile" className="link">Edit</Link>
+          </li>
+        </ul>
+      </div> : <div className="loading">Loading...</div>
 
   )
 }

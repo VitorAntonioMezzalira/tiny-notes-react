@@ -115,26 +115,26 @@ export function RegisterForm() {
 
   return (
     <>
-      <div>
+      <div className="container">
+        <form className="form" onSubmit={handleRegister}>
+          <ul>
+            <li><h3 className="text-center form-title">Create your account</h3></li>
+            {
+              registerMessage ?
+                <li className={(isRegisterMessageError ? 'error-message' : 'success-message') + ' message text-center'}>{registerMessage}</li> :
+                ''
+            }
+            <li><input ref={inputName} className="input full-width" placeholder="Name" id="name" type="text" /></li>
+            <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
+            <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
+            <li><input ref={inputRepassword} className="input full-width" placeholder="Confirm password" id="repassword" type="password" /></li>
+            <li><button className="button-primary full-width" id="register">Register</button></li>
+            <li><p className="font1-5x text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
+          </ul>
 
+        </form>
       </div>
-      <form className="form" onSubmit={handleRegister}>
-        <ul>
-          <li><h3 className="text-center form-title">Create your account</h3></li>
-          {
-            registerMessage ?
-              <li className={(isRegisterMessageError ? 'error-message' : 'success-message') + ' message text-center'}>{registerMessage}</li> :
-              ''
-          }
-          <li><input ref={inputName} className="input full-width" placeholder="Name" id="name" type="text" /></li>
-          <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
-          <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
-          <li><input ref={inputRepassword} className="input full-width" placeholder="Confirm password" id="repassword" type="password" /></li>
-          <li><button className="button-primary full-width" id="register">Register</button></li>
-          <li><p className="font1-5x text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
-        </ul>
 
-      </form>
 
       {
         isRegisterSuccess ?

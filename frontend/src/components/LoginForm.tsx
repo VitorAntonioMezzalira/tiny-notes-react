@@ -40,18 +40,22 @@ export function LoginForm() {
   }
 
   return (
-    <form className="form" onSubmit={handleLogin}>
 
-      <ul>
-        <li><h3 className="text-center form-title">Login</h3></li>
-        <li className="message text-center">{registerMessage ? registerMessage : ''}</li>
-        <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
-        <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
-        <li><button className="button-primary full-width" id="login">Login</button></li>
-        <li><p className="text text-center"><a className="link" href="/#">Forgot your password?</a></p></li>
-        <li><p className="text text-center">Don't have an account? <Link className="link" to="/register">Register</Link></p></li>
-      </ul>
+    <div className="container">
+      <form className="form" onSubmit={handleLogin}>
 
-    </form>
+        <ul>
+          <li><h3 className="text-center form-title">Login</h3></li>
+          <li className="message text-center">{registerMessage ? registerMessage : ''}</li>
+          <li><input ref={inputEmail} className="input full-width" placeholder="Email" id="email" type="email" /></li>
+          <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
+          <li><button className="button-primary full-width" id="login">Login</button></li>
+          <li><p className="text text-center"><a className="link" href="/#">Forgot your password?</a></p></li>
+          <li><p className="text text-center">Don't have an account? <Link className="link" to="/register">Register</Link></p></li>
+        </ul>
+
+      </form>
+    </div>
+
   )
 }
