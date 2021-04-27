@@ -1,0 +1,58 @@
+.note-item{
+  margin: 1rem;
+
+  width: 50rem;
+  min-height: 6.5rem;
+  background-color: bisque;
+
+  list-style-type: none;
+
+  position: relative;
+}
+
+.note-item-text{
+  padding: 1rem
+}
+
+.note-item-text div{
+  font: 500 2rem arial, Helvetica, sans-serif;
+  padding: .1rem;
+  width: 40rem;
+  word-wrap: break-word;
+}
+
+.note-item-text textarea{
+  font: 500 2rem arial, Helvetica, sans-serif;
+
+  width: 40rem;
+  height: 5.25rem;
+  word-wrap: break-word;
+
+  resize: vertical;
+  overflow: hidden;
+}
+
+.edit-note-item{
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 1rem 1rem 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-note-item button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.edit-note-item button i{
+  color: #ff8500;
+  transition: opacity .1s;
+}
+.edit-note-item button i:hover{
+  opacity: .5;
+}

@@ -1,6 +1,5 @@
 import { Link, useHistory } from 'react-router-dom'
 import './styles/UserProfile.css'
-
 import UserDefaultImage from '../images/user.png';
 import { useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
@@ -9,23 +8,21 @@ import { ModalContext } from '../contexts/ModalContext';
 export function UserProfile() {
 
   let history = useHistory();
-
   const { openModal, closeModal } = useContext(ModalContext);
   const { user } = useContext(UserContext);
 
+  // Events
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
     }
   });
 
+  // Onload
   if (!user._id) {
-    console.log(user._id)
     history.push('/login')
   }
-
-
-
+  
   useEffect(() => {
     return
     //

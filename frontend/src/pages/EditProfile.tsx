@@ -30,12 +30,10 @@ export function EditProfile() {
     updateUser(newUser).then(response => {
       if (response.nModified) {
         redefineUser(newUser);
-      } else {
-
+        history.push('/profile')
       }
     })
 
-    history.push('/profile')
   }
 
   const inputName = useRef<HTMLInputElement>(null);

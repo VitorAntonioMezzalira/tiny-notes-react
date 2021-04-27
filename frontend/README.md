@@ -5,7 +5,7 @@
 - [] Criar um menu de opções na aba de notas para poder sair da conta e/ou navegar pelo perfil;
 - [] Permitir criação de links nas notas;
 - [] Adicionar marcadores para as notas;
-- [] Salvar usuário nos Cookies e definir um tempo para a sessão expirar
+- [x] Salvar usuário nos Cookies e definir um tempo para a sessão expirar
 
 # Extra
 

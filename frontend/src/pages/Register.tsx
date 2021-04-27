@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { createUser } from '../actions/userActions';
 import './styles/forms.css';
+import { UserContext } from '../contexts/UserContext';
 
-export function RegisterForm() {
+export function Register() {
 
   interface UserForTest {
     name: string;
@@ -23,6 +24,8 @@ export function RegisterForm() {
   }
 
   let history = useHistory();
+
+  const { connectLoggedUser, user } = useContext(UserContext)
 
   const [registerMessage, setRegisterMessage] = useState('');
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(Boolean)
@@ -101,17 +104,23 @@ export function RegisterForm() {
             setRegisterMessage('Register success');
             setIsRegisterSuccess(true)
 
-            // history.push('/login')
-
           }
         })
     }
   }
 
+  function closeRegisterSuccessModal() {
+    setIsRegisterSuccess(false)
+  }
+
+  // Onload
+  connectLoggedUser()
+  if (user._id) history.push('/profile')
+
   useEffect(() => {
     return
     //
-  }, [registerMessage]);
+  }, [registerMessage, isRegisterSuccess]);
 
   return (
     <>
@@ -129,7 +138,7 @@ export function RegisterForm() {
             <li><input ref={inputPassword} className="input full-width" placeholder="Password" id="password" type="password" /></li>
             <li><input ref={inputRepassword} className="input full-width" placeholder="Confirm password" id="repassword" type="password" /></li>
             <li><button className="button-primary full-width" id="register">Register</button></li>
-            <li><p className="font1-5x text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
+            <li><p className="font_1-5x text-center">Already have an account? <Link className="link" to="/login">Login</Link></p></li>
           </ul>
 
         </form>
@@ -139,7 +148,7 @@ export function RegisterForm() {
       {
         isRegisterSuccess ?
 
-          <div id="modal-register-success" className="modal-shadow">
+          <div onClick={closeRegisterSuccessModal} id="modal-register-success" className="modal-shadow">
             <ul className="modal">
 
               <li className="text-center"><h2>Success</h2></li>

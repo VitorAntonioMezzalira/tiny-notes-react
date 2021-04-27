@@ -1,13 +1,14 @@
 import { useContext, useEffect } from 'react'
 import { Switch, Route } from 'react-router';
-import { EditProfile } from './components/EditProfile';
-import { LoginForm } from './components/LoginForm';
-import { NoteItem } from './components/NoteItem';
-import { RegisterForm } from './components/RegisterForm';
-import { UserProfile } from './components/UserProfile';
+import { EditProfile } from './pages/EditProfile';
+import { Notes } from './pages/Notes';
+import { Register } from './pages/Register';
+import { UserProfile } from './pages/Profile';
 import { ModalContext } from './contexts/ModalContext';
 import { UserContext } from './contexts/UserContext';
 import './global.css'
+import { Login } from './pages/Login';
+import Cookies from 'js-cookie';
 
 function App() {
   const { isModalOpen, closeModal } = useContext(ModalContext);
@@ -16,6 +17,7 @@ function App() {
 
   function disconectAccount() {
     closeModal()
+    Cookies.remove('_user_id')
     redefineUser({})
   }
 
@@ -31,11 +33,11 @@ function App() {
       <main className="main">
 
         <Switch>
-          <Route path="/login" component={LoginForm} />
-          <Route path="/register" component={RegisterForm} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/edit-profile" component={EditProfile} />
-          <Route path="/notes" component={NoteItem} />
+          <Route path="/notes" component={Notes} />
         </Switch>
 
       </main>
