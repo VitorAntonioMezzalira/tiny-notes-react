@@ -1,6 +1,7 @@
 import './styles.css';
 import '../../global.css';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+let autosize = require('autosize');
 
 interface Notes {
   _id: string;
@@ -13,11 +14,21 @@ interface NotesProps {
 
 const NoteItem: React.FC<NotesProps> = ({ note }) => {
 
+  const textarea = useRef<HTMLTextAreaElement>(null)
+
   function changeNoteItemEditingMode() {
     setIsEditing(!isEditing);
   }
 
   const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+
+    if (isEditing) {
+      autosize(textarea.current)
+    }
+
+  }, [isEditing])
 
   return (
 
@@ -26,7 +37,7 @@ const NoteItem: React.FC<NotesProps> = ({ note }) => {
 
         {
           isEditing ? (
-            <textarea>{note.content}</textarea>
+            <textarea ref={textarea}>{note.content}</textarea>
           ) : (
             <div>{note.content}</div>
           )
