@@ -1,0 +1,25 @@
+/* list */
+.notes-collection{
+  width: 50rem;
+  padding: 2rem;
+  list-style-type: none;
+}
+.notes-collection li{ 
+  margin-bottom: 1rem;
+}
+
+/* add new note */
+.add-new-note{
+  background-color: bisque;
+  padding: 1rem;
+  font: 500 2rem arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+.add-new-note i{
+  color: #ff8500;
+  padding-right: 1rem;
+}
+.add-new-note i:hover{
+  opacity: .5;
+}

@@ -1,12 +1,5 @@
 .note-item{
-  margin: 1rem;
-
-  width: 50rem;
-  min-height: 6.5rem;
   background-color: bisque;
-
-  list-style-type: none;
-
   position: relative;
 }
 
@@ -27,9 +20,6 @@
   width: 40rem;
   height: 5.25rem;
   word-wrap: break-word;
-
-  resize: vertical;
-  overflow: hidden;
 }
 
 .edit-note-item{
@@ -38,10 +28,6 @@
   right: 0;
 
   padding: 1rem 1rem 0 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .edit-note-item button{
