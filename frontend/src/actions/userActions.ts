@@ -10,8 +10,8 @@ interface User {
   instagram?: string
 }
 
-export async function getUser(_user_id: string) {
-  const response = await api.get('/user/profile/' + _user_id);
+export async function getUser(_id: string) {
+  const response = await api.get('/user/profile/' + _id);
   if (response) {
     return response.data
   }
